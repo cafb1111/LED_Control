@@ -25,14 +25,18 @@ class RealtimeDatabaseInsertState extends State<RealtimeDatabaseInsert> {
               ElevatedButton(
                   onPressed: () {
                     insertData('ON');
-                    setColor();
+                    Future.delayed(Duration(seconds: 3), () {
+                      setColor();
+                    });
                   },
                   child: Text("LED ON")),
               SizedBox(height: 20.0),
               ElevatedButton(
                   onPressed: () {
                     insertData('OFF');
-                    setColor();
+                    Future.delayed(Duration(seconds: 3), () {
+                      setColor();
+                    });
                   },
                   child: Text("LED OFF")),
             ])));
@@ -45,9 +49,10 @@ class RealtimeDatabaseInsertState extends State<RealtimeDatabaseInsert> {
   }
 
   void setColor() async {
-    DataSnapshot Status = await databaseRef.reference().child("LED").once();
+    DataSnapshot Status =
+        await databaseRef.reference().child('LED_Status').once();
 
-    // print(Status.value);
+    print(Status.value);
 
     if (Status.value == "ON") {
       setState(() {
