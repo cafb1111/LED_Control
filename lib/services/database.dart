@@ -23,7 +23,6 @@ class RealtimeDatabaseInsertState extends State<RealtimeDatabaseInsert> {
               ElevatedButton(
                   onPressed: () {
                     insertData('ON');
-                    insertData('ON');
                   },
                   child: Text("LED ON")),
               SizedBox(height: 20.0),
