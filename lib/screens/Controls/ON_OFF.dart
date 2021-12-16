@@ -42,14 +42,13 @@ class RealtimeDatabaseInsertState extends State<RealtimeDatabaseInsert> {
     databaseRef.reference().set({
       'LED': LED,
     });
-    // print(LED);
-    // print(databaseRef);
   }
 
   void setColor() async {
     DataSnapshot Status = await databaseRef.reference().child("LED").once();
 
     // print(Status.value);
+
     if (Status.value == "ON") {
       setState(() {
         LED_color = Colors.green;
